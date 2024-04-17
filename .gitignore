@@ -15,6 +15,7 @@ deployments/optimism/solcInputs/*
 deployments/base/solcInputs/*
 deployments/arbitrum-one/solcInputs/*
 deployments/arbitrum-nova/solcInputs/*
+deployments/lukso-mainnet/solcInputs/*
 deployments/polygon/solcInputs/*
 deployments/scroll/solcInputs/*
 deployments/celo/solcInputs/*

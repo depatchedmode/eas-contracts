@@ -6,6 +6,7 @@ export enum DeploymentNetwork {
   Base = 'base',
   ArbitrumOne = 'arbitrum-one',
   ArbitrumNova = 'arbitrum-nova',
+  DegenMainnet = 'degen-mainnet',
   Polygon = 'polygon',
   Scroll = 'scroll',
   Celo = 'celo',
