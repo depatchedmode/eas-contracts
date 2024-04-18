@@ -235,7 +235,8 @@ const func: DeployFunction = async ({ getNamedAccounts }: HardhatRuntimeEnvironm
       name: InstanceName.EAS,
       methodName: 'multiAttest',
       args: [[{ schema: schemaId, data: requests }]],
-      from: deployer
+      // from: deployer
+      from: process.env.DEPLOYER
     });
 
     const uids: string[] = await getUIDsFromAttestReceipt(res as any as TransactionReceipt);
@@ -428,7 +429,8 @@ const func: DeployFunction = async ({ getNamedAccounts }: HardhatRuntimeEnvironm
     name: InstanceName.EAS,
     methodName: 'multiAttest',
     args: [[{ schema: schemaId, data: requests }]],
-    from: deployer
+    // from: deployer
+    from: process.env.DEPLOYER
   });
 
   const uids: string[] = await getUIDsFromAttestReceipt(res as any as TransactionReceipt);

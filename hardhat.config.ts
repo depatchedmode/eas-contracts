@@ -20,6 +20,7 @@ interface EnvOptions {
   ARBITRUM_ONE_ETHERSCAN_API_KEY?: string;
   ARBITRUM_NOVA_PROVIDER_URL?: string;
   ARBITRUM_NOVA_ETHERSCAN_API_KEY?: string;
+  DEGEN_ETHERSCAN_API_KEY?: string;
   DEGEN_MAINNET_PROVIDER_URL?: string;
   POLYGON_PROVIDER_URL?: string;
   POLYGON_ETHERSCAN_API_KEY?: string;
@@ -52,6 +53,7 @@ const {
   ARBITRUM_ONE_ETHERSCAN_API_KEY = '',
   ARBITRUM_NOVA_PROVIDER_URL = '',
   ARBITRUM_NOVA_ETHERSCAN_API_KEY = '',
+  DEGEN_ETHERSCAN_API_KEY = '',
   DEGEN_MAINNET_PROVIDER_URL = '',
   POLYGON_PROVIDER_URL = '',
   SCROLL_PROVIDER_URL = '',
@@ -152,7 +154,10 @@ const config: HardhatUserConfig = {
       chainId: 666666666,
       url: DEGEN_MAINNET_PROVIDER_URL,
       saveDeployments: true,
-      live: true
+      live: true,
+      verify: {
+        etherscan: { apiKey: DEGEN_ETHERSCAN_API_KEY }
+      }
     },
     [DeploymentNetwork.Polygon]: {
       chainId: 137,
@@ -292,6 +297,20 @@ const config: HardhatUserConfig = {
 
   typechain: {
     target: 'ethers-v6'
+  },
+
+  etherscan: {
+    apiKey: 'no-api-key-needed',
+    customChains: [
+      {
+        network: 'degen-mainnet',
+        chainId: 666666666,
+        urls: {
+          apiURL: 'https://explorer.degen.tips/api',
+          browserURL: 'https://explorer.degen.tips/'
+        }
+      }
+    ]
   },
 
   namedAccounts: NamedAccounts,

@@ -9,7 +9,12 @@ const func: DeployFunction = async ({ getNamedAccounts }: HardhatRuntimeEnvironm
 
   const eas = await DeployedContracts.EAS.deployed();
 
-  await deploy({ name: InstanceName.EIP712Proxy, from: deployer, args: [await eas.getAddress(), EIP712_PROXY_NAME] });
+  await deploy({
+    name: InstanceName.EIP712Proxy,
+    // from: deployer,
+    from: process.env.DEPLOYER,
+    args: [await eas.getAddress(), EIP712_PROXY_NAME]
+  });
 
   return true;
 };

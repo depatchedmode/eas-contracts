@@ -9,7 +9,12 @@ const func: DeployFunction = async ({ getNamedAccounts }: HardhatRuntimeEnvironm
 
   const eas = await DeployedContracts.EAS.deployed();
 
-  await deploy({ name: InstanceName.Indexer, from: deployer, args: [await eas.getAddress()] });
+  await deploy({
+    name: InstanceName.Indexer,
+    // from: deployer,
+    from: process.env.DEPLOYER,
+    args: [await eas.getAddress()]
+  });
 
   return true;
 };

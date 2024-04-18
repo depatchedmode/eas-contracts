@@ -31,7 +31,8 @@ const func: DeployFunction = async ({ getNamedAccounts }: HardhatRuntimeEnvironm
           }
         }
       ],
-      from: deployer
+      // from: deployer
+      from: process.env.DEPLOYER
     });
 
     Logger.log(`Named schema ${schema} as "${name}"`);

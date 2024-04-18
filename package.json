@@ -71,7 +71,7 @@
     "verify:base": "HARDHAT_NETWORK=base hardhat etherscan-verify --license MIT --api-url https://api.basescan.org",
     "verify:arbitrum-one": "HARDHAT_NETWORK=arbitrum-one hardhat etherscan-verify --license MIT",
     "verify:arbitrum-nova": "HARDHAT_NETWORK=arbitrum-nova hardhat etherscan-verify --license MIT --api-url https://api-nova.arbiscan.io",
-    "verify:degen-mainnet": "HARDHAT_NETWORK=degen-mainnet hardhat verify",
+    "verify:degen-mainnet": "HARDHAT_NETWORK=degen-mainnet hardhat etherscan-verify --license MIT --api-url https://explorer.degen.tips/api",
     "verify:polygon": "HARDHAT_NETWORK=polygon hardhat etherscan-verify --license MIT",
     "verify:scroll": "HARDHAT_NETWORK=scroll hardhat etherscan-verify --license MIT --api-url https://api.scrollscan.com",
     "verify:celo": "HARDHAT_NETWORK=celo hardhat etherscan-verify --license MIT --api-url https://api.celoscan.io",

@@ -129,7 +129,8 @@ const func: DeployFunction = async ({ getNamedAccounts }: HardhatRuntimeEnvironm
       name: InstanceName.SchemaRegistry,
       methodName: 'register',
       args: [schema, ZERO_ADDRESS, true],
-      from: deployer
+      from: process.env.DEPLOYER
+      // from: deployer
     });
 
     Logger.log(`Registered schema ${schema} with UID ${getSchemaUID(schema, ZERO_ADDRESS, true)}`);
